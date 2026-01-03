@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Isha 🐼💕</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="birthday-page">
+    <!-- Celebration Canvas for balloons, crackers, and confetti -->
+    <canvas id="celebrationCanvas"></canvas>
+
+    <div class="panda-container" id="pandaContainer"
+        style="background: linear-gradient(135deg, #fff9e6 0%, #ffe8f0 50%, #e8f4f8 100%); min-height: 100vh;">
+        <!-- Panda Head -->
+        <div class="panda">
+            <div class="panda-head">
+                <div class="panda-ear left"></div>
+                <div class="panda-ear right"></div>
+                <div class="panda-face">
+                    <div class="panda-eye-area left">
+                        <div class="panda-eye"></div>
+                    </div>
+                    <div class="panda-eye-area right">
+                        <div class="panda-eye"></div>
+                    </div>
+                    <div class="panda-nose"></div>
+                    <div class="panda-mouth"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="birthday-content" id="birthdayContent" style="display: none;">
+            <h1 class="birthday-title">🎉 HAPPY BIRTHDAY ISHA 🐼 💕</h1>
+
+            <div class="birthday-message">
+                <p class="love-message">
+                    My Dearest Panda,
+                </p>
+
+                <p class="love-text">
+                    Today is your day - a day as special as you are. Every moment with you feels like a dream come true,
+                    and I can't imagine my life without you by my side.
+                </p>
+
+                <p class="love-text">
+                    Your beauty isn't just in your gorgeous face and your captivating eyes - it's in the warmth of your
+                    heart,
+                    the kindness in your soul, and the way you make me feel like the luckiest person in the world. When
+                    I look at you,
+                    I see not just the woman I love, but my best friend, my partner, and my forever.
+                </p>
+
+                <p class="love-text">
+                    You are the reason my heart smiles every single day. Your laugh is my favorite sound,
+                    your touch is my favorite feeling, and your love is my greatest treasure.
+                </p>
+
+                <p class="love-text">
+                    Thank you for being the most amazing, beautiful, and wonderful person.
+                    On your special day, I want to celebrate not just your birthday, but YOU - everything you are and
+                    everything you mean to me.
+                </p>
+
+                <p class="love-text">
+                    Here's to another year of adventures, love, laughter, and countless beautiful moments together.
+                </p>
+
+                <p class="love-message end-message">
+                    Forever Yours with All My Love,<br>
+                    Harsh 💕
+                </p>
+            </div>
+
+            <div class="birthday-wishes">
+                <div class="wish-item">🌹 Wishing you all the love and happiness in the world</div>
+                <div class="wish-item">💖 May your day be as beautiful as your soul</div>
+                <div class="wish-item">🎂 Celebrating the most wonderful person ever</div>
+                <div class="wish-item">✨ You deserve all the magic and joy</div>
+                <div class="wish-item">🌟 Happy Birthday to my Beautiful Panda</div>
+            </div>
+
+            <div class="wish-card-section">
+                <button id="revealCardBtn" class="reveal-button">💌 Show Your Wish Card 💌</button>
+
+                <!-- Panda-Monkey Image Modal -->
+                <div class="panda-monkey-modal" id="pandaMonkeyModal" style="display: none;">
+                    <div class="modal-content">
+                        <img src="Panda Monkey.png" alt="Happy Birthday Panda Monkey" class="panda-monkey-image"
+                            onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 200 200%22><text x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-size=%2240%22>🐼🐵</text></svg>'">
+                        <button id="continueToWishCardBtn" class="continue-wish-card-button">Continue to Wish Card
+                            💌</button>
+                    </div>
+                </div>
+
+                <div class="wish-card" id="wishCard" style="display: none;">
+                    <div class="card-content">
+                        <h2>To My Beautiful Isha</h2>
+                        <p class="card-text">
+                            On this special day, I want to remind you that you are the most beautiful person both inside
+                            and out.
+                            Your smile brightens my darkest days, your love completes me, and your presence makes life
+                            worth living.
+                        </p>
+                        <p class="card-text">
+                            Thank you for being my love, my partner, my everything.
+                        </p>
+                        <p class="card-signature">
+                            All My Love,<br>
+                            Harsh ❤️
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-button">← Back to Countdown</a>
+        </div>
+
+        <div class="celebration-message" id="celebrationMessage">
+            <h1 class="celebration-title">🎉 It's Your Special Day! 🎉</h1>
+            <p class="celebration-text">Let the celebration begin...</p>
+            <button id="continueBtn" class="continue-button" style="opacity: 0.7;">Continue to Your Birthday 🎂</button>
+        </div>
+    </div>
+
+    <style>
+        body.birthday-page {
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe8f0 50%, #e8f4f8 100%);
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .panda-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            background: linear-gradient(135deg, #fff9e6 0%, #ffe8f0 50%, #e8f4f8 100%);
+        }
+
+        .celebration-message {
+            text-align: center;
+            animation: fadeInScale 0.8s ease-out;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 50px 40px;
+            border-radius: 25px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .celebration-title {
+            font-size: 3.5em;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            font-weight: bold;
+            animation: bounce 1s ease-in-out infinite;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .celebration-text {
+            font-size: 1.5em;
+            color: #2d3436;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .continue-button {
+            padding: 16px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(245, 87, 108, 0.4);
+            transition: all 0.3s ease;
+            display: none;
+            opacity: 0;
+            margin-top: 20px;
+            width: auto;
+            white-space: nowrap;
+        }
+
+        .continue-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.6);
+        }
+
+        .continue-button:active {
+            transform: translateY(-1px);
+        }
+
+        .panda {
+            margin-bottom: 40px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pandaBounce {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.1);
+            }
+
+            50% {
+                transform: scale(1);
+            }
+
+            75% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .panda-head {
+            position: relative;
+            width: 150px;
+            height: 150px;
+            background-color: white;
+            border-radius: 50%;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .panda-ear {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-color: black;
+            border-radius: 50%;
+            top: -15px;
+        }
+
+        .panda-ear.left {
+            left: 20px;
+        }
+
+        .panda-ear.right {
+            right: 20px;
+        }
+
+        .panda-face {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .panda-eye-area {
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            background-color: black;
+            border-radius: 50%;
+            top: 35px;
+        }
+
+        .panda-eye-area.left {
+            left: 25px;
+        }
+
+        .panda-eye-area.right {
+            right: 25px;
+        }
+
+        .panda-eye {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: white;
+            border-radius: 50%;
+            top: 15px;
+            left: 15px;
+        }
+
+        .panda-nose {
+            position: absolute;
+            width: 15px;
+            height: 12px;
+            background-color: black;
+            border-radius: 50%;
+            top: 75px;
+        }
+
+        .panda-mouth {
+            position: absolute;
+            width: 30px;
+            height: 3px;
+            background-color: black;
+            top: 92px;
+            border-radius: 50%;
+        }
+
+        #celebrationCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .birthday-title {
+            font-size: 3em;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 30px;
+            font-weight: bold;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .wish-card-section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .panda-monkey-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .modal-content {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            animation: slideUp 0.5s ease-out;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .panda-monkey-image {
+            width: 100%;
+            height: auto;
+            max-width: 400px;
+            animation: bounce 2s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        .continue-wish-card-button {
+            padding: 12px 30px;
+            font-size: 1em;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .continue-wish-card-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .continue-wish-card-button:active {
+            transform: translateY(-1px);
+        }
+
+        .reveal-button {
+            padding: 14px 35px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 50px;
+            border: none;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+
+        .reveal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.5);
+        }
+
+        .wish-card {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe8f0 100%);
+            border: 3px solid #f5576c;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 15px 40px rgba(245, 87, 108, 0.3);
+            animation: cardFlip 0.6s ease-out;
+        }
+
+        @keyframes cardFlip {
+            from {
+                opacity: 0;
+                transform: rotateY(90deg);
+            }
+
+            to {
+                opacity: 1;
+                transform: rotateY(0deg);
+            }
+        }
+
+        .card-content {
+            text-align: center;
+        }
+
+        .card-content h2 {
+            font-size: 1.8em;
+            color: #d63031;
+            margin-bottom: 20px;
+        }
+
+        .card-text {
+            font-size: 1em;
+            color: #2d3436;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .card-signature {
+            font-size: 1.1em;
+            color: #d63031;
+            margin-top: 25px;
+            font-weight: bold;
+            font-style: italic;
+        }
+
+        @media (max-width: 768px) {
+            .celebration-title {
+                font-size: 2.5em;
+            }
+
+            .birthday-title {
+                font-size: 2em;
+            }
+
+            .wish-card {
+                padding: 20px;
+            }
+        }
+    </style>
+
+    <script src="celebration.js"></script>
+    <script src="birthday.js"></script>
+</body>
+
+</html>
