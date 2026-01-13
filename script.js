@@ -1,7 +1,7 @@
 // Target date: January 23, 2026 at 12:00 AM
 // For testing: set to past date to enable button immediately
 const targetDate = new Date('2026-01-23T00:00:00').getTime();
-
+// ok
 function updateCountdown() {
     const now = new Date().getTime();
     const timeRemaining = targetDate - now;
@@ -82,6 +82,7 @@ setInterval(updateCountdown, 1000);
 
 // Initial update
 updateCountdown();
+
 
 
 
